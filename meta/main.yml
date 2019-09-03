@@ -2,7 +2,7 @@ galaxy_info:
   author: Abdennour Toumi
   description: installs helmfile to /usr/local/bin
   company: kubernetes.tn
-  role_name: abdennour.helmfile
+  role_name: helmfile
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
