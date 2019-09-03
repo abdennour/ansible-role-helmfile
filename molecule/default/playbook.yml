@@ -3,3 +3,26 @@
   hosts: all
   roles:
     - role: abdennour.helmfile
+
+  pre_tasks:
+  - name: helmfile stats is fetched
+    stat:
+      path: "{{ helmfile_bin_dir }}/helmfile"
+    register: stat_result
+    changed_when: false
+
+  - name: helmfile absence is verified
+    assert:
+      that:
+        - stat_result.stat.exists == False  
+  post_tasks:
+  - name: helmfile stats is fetched
+    stat:
+      path: "{{ helmfile_bin_dir }}/helmfile"
+    register: stat_result
+    changed_when: false
+
+  - name: helmfile existence is verified
+    assert:
+      that:
+        - stat_result.stat.exists == True
