@@ -1,0 +1,8 @@
+---
+# vars file for abdennour.helmfile
+# ex: https://github.com/roboll/helmfile/releases/download/v0.82.0/helmfile_darwin_amd64
+---
+helmfile_name: helmfile_{{ helmfile_platform }} # helm-{{helmfile_version}}-{{helmfile_platform}}
+
+helmfile_url: '{{ helmfile_mirror }}/{{ helmfile_version }}/{{ helmfile_name }}'
+helmfile_install_file: '{{ helmfile_bin_dir }}/helmfile'
