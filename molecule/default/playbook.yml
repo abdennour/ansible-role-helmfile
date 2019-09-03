@@ -12,9 +12,9 @@
     changed_when: false
 
   - name: helmfile absence is verified
-    assert:
-      that:
-        - stat_result.stat.exists == False  
+    debug:
+      msg: helmfile does not exist yet
+    when: not stat_result.stat.exists
   post_tasks:
   - name: helmfile stats is fetched
     stat:
@@ -23,6 +23,6 @@
     changed_when: false
 
   - name: helmfile existence is verified
-    assert:
-      that:
-        - stat_result.stat.exists == True
+    debug:
+      msg: helmfile exists
+    when: stat_result.stat.exists
